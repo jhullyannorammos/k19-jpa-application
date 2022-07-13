@@ -24,7 +24,7 @@ import javax.persistence.Transient;
 public class Pessoa implements Serializable {
 	
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
-	@Column(name = "id_cargo")
+	@Column(name = "codigo")
 	private Long id;
 	
 	@Lob private byte[] avatar;
@@ -39,7 +39,7 @@ public class Pessoa implements Serializable {
 	private Calendar nascimento;
 	
 	@Temporal(TemporalType.DATE)
-	private Calendar dataDeCadastro ;
+	private Calendar dataDeCadastro;
 	
 	@Transient private int idade;
 	
