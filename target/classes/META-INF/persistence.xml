@@ -23,6 +23,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
         <class>br.com.application.model.Fatura</class>
         <class>br.com.application.model.Estado</class>
          -->
+
         
     </persistence-unit>
 </persistence>

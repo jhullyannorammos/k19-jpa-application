@@ -3,6 +3,7 @@ package br.com.application.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,8 @@ public class Cliente implements Serializable{
 	private Long id;
 
     private String nome;
+    
+    @Embedded private Endereco endereco;
 
     public String getNome() {
         return nome;

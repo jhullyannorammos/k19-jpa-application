@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class Endereco implements Serializable {
+public class Endereco {
 
 	private String complemento;
 	private String logradouro;
