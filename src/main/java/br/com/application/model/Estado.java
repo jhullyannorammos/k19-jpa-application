@@ -3,7 +3,7 @@ package br.com.application.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
+import org.hibernate.annotations.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,8 +19,8 @@ public class Estado implements Serializable{
 	
 	private String nome;
 	
-	@JoinColumn(name = "gov_id")
-	@OneToOne(optional = false) private Governador governador;
+	@OneToOne() @JoinColumn(name = "governador_id")
+	private Governador governador;
 	
 	public Estado() {
 		// TODO Auto-generated constructor stub

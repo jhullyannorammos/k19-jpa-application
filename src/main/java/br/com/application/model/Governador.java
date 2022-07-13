@@ -3,10 +3,11 @@ package br.com.application.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
+import org.hibernate.annotations.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Governador implements Serializable{
@@ -14,6 +15,9 @@ public class Governador implements Serializable{
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "codigo")
 	private Long id;
+	
+	@OneToOne
+	private Estado estado;
 	
 	private String nome;
 	

@@ -9,6 +9,7 @@ import javax.persistence.CollectionTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "tbl_pessoas")
+@Table(name = "pessoas")
 public class Pessoa implements Serializable {
 	
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -51,5 +52,7 @@ public class Pessoa implements Serializable {
 	                 joinColumns=@JoinColumn(name="pessoa_id"))
 	@Column(name="telefone")
 	private Collection<String> telefones;
+	
+	@Embedded private Endereco endereco ;
 
 }

@@ -1,14 +1,17 @@
 package br.com.application.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.Entity;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-@Entity
-public class Produto {
+@Entity 
+public class Produto implements Serializable{
 
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "codigo")
