@@ -2,6 +2,7 @@ package br.com.application.model;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 
@@ -21,11 +22,11 @@ public class Estado implements Serializable{
 	
 	private String nome;
 	
-	@OneToOne(fetch=FetchType.LAZY) @JoinColumn(name = "governador_id")
+	@OneToOne(fetch=FetchType.LAZY, cascade = CascadeType.PERSIST) @JoinColumn(name = "governador_id")
 	private Governador governador;
 	
 	public Estado() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Long getId() {

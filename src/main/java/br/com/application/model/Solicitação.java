@@ -2,6 +2,7 @@ package br.com.application.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,6 +21,8 @@ public class Solicitação implements Serializable{
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "codigo")
 	private Long id;
+	
+	private List<Comentario> comentarios;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataSolicitacao;
