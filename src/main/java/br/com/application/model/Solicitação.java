@@ -5,6 +5,7 @@ import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,8 +24,8 @@ public class Solicitação implements Serializable{
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar dataSolicitacao;
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	@JoinColumn(name= "cliente_id")
-	private Cliente cliente ;
+	private Cliente cliente;
 
 }

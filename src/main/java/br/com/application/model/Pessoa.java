@@ -5,12 +5,14 @@ import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Collection;
 
+import javax.persistence.Basic;
 import javax.persistence.CollectionTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,7 +53,7 @@ public class Pessoa implements Serializable {
 	
 	@Transient private int idade;
 	
-	@Column(precision =3, scale =2)
+	@Basic(fetch = FetchType.LAZY) @Column(precision =3, scale =2)
 	private BigDecimal altura;
 	
 	@ElementCollection

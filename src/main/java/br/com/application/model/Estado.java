@@ -3,6 +3,8 @@ package br.com.application.model;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.FetchType;
+
 import org.hibernate.annotations.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,7 +21,7 @@ public class Estado implements Serializable{
 	
 	private String nome;
 	
-	@OneToOne() @JoinColumn(name = "governador_id")
+	@OneToOne(fetch=FetchType.LAZY) @JoinColumn(name = "governador_id")
 	private Governador governador;
 	
 	public Estado() {

@@ -3,8 +3,11 @@ package br.com.application.repository.implementation;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.FlushModeType;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
+
+import org.hibernate.query.Query;
 
 import br.com.application.model.Categoria;
 import br.com.application.repository.CategoriaRepository;
@@ -12,7 +15,8 @@ import br.com.application.util.PersistenceFactory;
 
 public class CategoriaRepositoryImplemention implements CategoriaRepository{
 	
-	@PersistenceContext EntityManager manager;
+	@PersistenceContext private EntityManager manager;
+	private Query query;
 	
 	public CategoriaRepositoryImplemention() {
 		manager = PersistenceFactory.getEntitymanager();
@@ -20,6 +24,7 @@ public class CategoriaRepositoryImplemention implements CategoriaRepository{
 
 	@Override
 	public List<Categoria> findAll() {
+		query.setFlushMode(FlushModeType.AUTO);
 		return null;
 	}
 
