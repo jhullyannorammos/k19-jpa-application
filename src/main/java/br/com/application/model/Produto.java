@@ -4,6 +4,13 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PostLoad;
+import javax.persistence.PostPersist;
+import javax.persistence.PostRemove;
+import javax.persistence.PostUpdate;
+import javax.persistence.PrePersist;
+import javax.persistence.PreRemove;
+import javax.persistence.PreUpdate;
 
 import org.hibernate.annotations.Entity;
 
@@ -68,5 +75,35 @@ public class Produto implements Serializable{
     @Override
     public int hashCode() {
         return id.hashCode();
+    }
+    
+    @PostLoad public String postLoad() {
+    	return "um objeto foi carregado na database";
+    }
+    
+    @PrePersist
+    public String prePersist() {
+    	return "Persistindo um novo objeto com persist ou merge";
+    }
+    
+    @PostPersist
+    public String postPersist() {
+    	return "command insert executado na database, um rollback ainda pode desfazer esse comando";
+    }
+    
+    @PreUpdate public String preUpdate() {
+        return "edita objeto gerenciado com remove()";	
+    }
+    
+    @PostUpdate public String postUpdate() {
+		return "command update executado na database, um rollback ainda pode desfazer esse comando";
+    }
+    
+    @PreRemove public String preRemove() {
+        return "remove objeto gerenciado com remove()";	
+    }
+    
+    @PostRemove public String postRemove() {
+		return "command delete executado na database, um rollback ainda pode desfazer esse comando";
     }
 }

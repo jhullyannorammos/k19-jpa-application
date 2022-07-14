@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.application.model.event.K19PersisteceListener;
+
 @Entity
+@EntityListeners(K19PersisteceListener.class)
 public class Solicitação implements Serializable{
 
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
