@@ -25,6 +25,8 @@ import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 @NamedQueries ({
+	@NamedQuery(name = "Pessoa.findByIdadeGreatesThen", query = "SELECT p FROM Pessoa p WHERE p. idade > : ?"),
+	@NamedQuery(name = "Pessoa.findByIdadeEquals", query = "SELECT p FROM Pessoa p WHERE p. idade = : ?"),
 	@NamedQuery(name = "Pessoa.count", query = "SELECT COUNT (p) FROM Pessoa p"),
 	@NamedQuery(name = "Pessoa.findAll", query = "SELECT p FROM Pessoa p")
 })
