@@ -13,10 +13,9 @@ public class Dados implements Serializable{
 
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "codigo")
-	@Version
-	private Long id;
+	@Version private Long id;
 	
-	
+	@Version private Long versao;
 	@Version private Timestamp dataCriacao;
 	@Version private Short tamanho = 102;
 
