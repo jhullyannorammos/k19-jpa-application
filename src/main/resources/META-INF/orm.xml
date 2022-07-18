@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings>
+     <persistence-unit-metadata>
+          <persistence-unit-default>
+               <acess>FIELD</acess>
+          </persistence-unit-default>
+     </persistence-unit-metadata>
+     <entity class = "br.com.application.model.Pessoa">
+          <attributes>
+               <id name="id">
+                    <column name="codigo"></column>
+               </id>
+          </attributes>
+     </entity>
+</entity-mappings>
