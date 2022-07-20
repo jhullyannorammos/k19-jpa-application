@@ -19,10 +19,15 @@ public class Automovel implements Serializable {
 	@Column(name = "codigo")
 	private Long id;
 
+	@Column(length = 60, nullable = false)
 	private String fabricante;
 	private Modelo modelo;
+	
+	@Column(name = "ano_fabricacao", nullable = false)
 	private Integer anoFabricacao;
 	private Integer anoModelo;
+	
+	@Column(precision = 10, scale = 2, nullable = true)
 	private BigDecimal valor;
 	
 	public String getFabricante() {
