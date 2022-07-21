@@ -1,6 +1,8 @@
 package br.com.application.model.inheritance;
 
-import javax.persistence.Entity;
+
+
+import org.hibernate.annotations.Entity;
 
 import br.com.application.model.abstracta.ABSPessoa;
 

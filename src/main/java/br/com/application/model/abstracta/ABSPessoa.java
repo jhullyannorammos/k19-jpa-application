@@ -19,7 +19,7 @@ public abstract class ABSPessoa {
 
 	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
 	@Column(name = "codigo")
-	private Long id;
+	protected Long id;
 	
 	private String nome;
 }

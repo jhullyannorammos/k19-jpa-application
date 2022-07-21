@@ -6,9 +6,20 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Endereco {
 
+	@Column(length = 3, nullable = false) 
 	private String descricao;
+	
+	@Column(length = 20, nullable = false) 
 	private String numero;
+	
+	@Column(length = 8) 
 	private String cep;
+	
+	private String complemento;
+	private String logradouro;
+	private String cidade;
+	private String estado;
+	private String pais;
 
 	public Endereco() {
 		
@@ -21,31 +32,7 @@ public class Endereco {
 		this.cep = cep;
 	}
 
-	@Column(length = 3, nullable = false)
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	@Column(length = 20, nullable = false)
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	@Column(length = 8)
-	public String getCep() {
-		return cep;
-	}
-
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
+	
+	
 
 }
