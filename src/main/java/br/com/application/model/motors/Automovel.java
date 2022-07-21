@@ -4,6 +4,8 @@ import java.beans.Transient;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -14,7 +16,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -30,8 +36,16 @@ public class Automovel implements Serializable {
 	@Column(name = "codigo")
 	private Long id;
 	
+	@JoinColumn(name = "cod_proprietario")
+	@ManyToOne private Proprietario proprietario;
+	
+	@JoinColumn(name = "cod_modelo")
     @OneToOne
-	private Proprietario proprietario;
+    private Modelo modelo;
+	
+	@JoinTable(name = "veiculo_acessorios", joinColumns = @JoinColumn(name = "cod_veiculo"), inverseJoinColumns = @JoinColumn(name = "cod_acessorio"))
+	@ManyToMany
+	private Set<Acessorio> acessorios = new HashSet<>();
 	
 	@Lob private byte[] foto;
 	
@@ -44,7 +58,7 @@ public class Automovel implements Serializable {
 
 	@Column(length = 60, nullable = false)
 	private String fabricante;
-	private Modelo modelo;
+	
 	
 	@Column(name = "ano_fabricacao", nullable = false)
 	private Integer anoFabricacao;
@@ -65,6 +79,14 @@ public class Automovel implements Serializable {
 		+ " " + this.getAnoFabricacao() + "/" + this.getAnoModelo()
 		+ " por apenas " + this.getValor();
 
+	}
+	
+	public Set<Acessorio> getAcessorios() {
+		return acessorios;
+	}
+	
+	public void setAcessorios(Set<Acessorio> acessorios) {
+		this.acessorios = acessorios;
 	}
 	
 	public byte[] getFoto() {
