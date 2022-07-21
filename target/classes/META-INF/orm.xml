@@ -12,4 +12,11 @@
                </id>
           </attributes>
      </entity>
+     <entity class = "br.com.application.model.motors.Automovel">
+          <attributes>
+               <id name="id">
+                    <column name="codigo"></column>
+               </id>
+          </attributes>
+     </entity>
 </entity-mappings>
